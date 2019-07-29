@@ -1,37 +1,17 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import SingleArtistSearch from './SingleArtistSearch';
-import CompareArtists from './CompareArtists';
-
+import React from 'react';
+import { render } from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import App from './containers/App';
+import reducer from './reducers';
 import 'bulma/css/bulma.css';
 import './styles.css';
 
-const App = () => {
-  const [showSingle, setShowSingle] = useState(true);
-  return (
-    <div className="App">
-      {showSingle && (
-        <div>
-          <SingleArtistSearch />
-          <button className="button" onClick={() => setShowSingle(false)}>
-            Want to compare artists instead?
-          </button>
-        </div>
-      )}
-      {!showSingle && (
-        <div>
-          <CompareArtists searchedArtist={{}} />
-          <button
-            className="button is-info"
-            onClick={() => setShowSingle(true)}
-          >
-            Back to Search
-          </button>
-        </div>
-      )}
-    </div>
-  );
-};
+const store = createStore(reducer);
 
-const rootElement = document.getElementById('root');
-ReactDOM.render(<App />, rootElement);
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root'),
+);
