@@ -1,2 +1,3 @@
 # artist-stats-client-redux
-Created with CodeSandbox
+
+Spotify artist stats search built with React with Redux
