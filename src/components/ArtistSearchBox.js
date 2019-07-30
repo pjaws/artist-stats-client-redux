@@ -1,24 +1,8 @@
 import React, { useState } from 'react';
 
-const ArtistSearchBox = ({ setArtistData }) => {
+const ArtistSearchBox = ({ position, fetchArtist }) => {
   const [artist, setArtist] = useState('');
   const [error, setError] = useState('');
-
-  async function getArtistData(artist) {
-    try {
-      const response = await fetch(
-        `https://r5gg4.sse.codesandbox.io/artists?q=${artist}`,
-      );
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
-      const artistStats = await response.json();
-
-      return artistStats;
-    } catch (error) {
-      throw error;
-    }
-  }
 
   const validateForm = input => {
     let error = '';
@@ -33,19 +17,14 @@ const ArtistSearchBox = ({ setArtistData }) => {
     setArtist(event.target.value);
   };
 
-  const handleSubmit = async event => {
+  const handleSubmit = event => {
     event.preventDefault();
 
     validateForm(artist);
 
     if (error.length) return;
 
-    try {
-      const artistData = await getArtistData(artist);
-      setArtistData(artistData);
-    } catch (error) {
-      console.log(error);
-    }
+    fetchArtist(artist.trim(), position);
   };
 
   return (

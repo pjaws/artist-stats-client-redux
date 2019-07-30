@@ -1,19 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ArtistForm from './ArtistForm';
 import ArtistResults from './ArtistResults';
 
-const SingleArtistSearch = () => {
-  const [artistData, setArtistData] = useState(null);
-
+const SingleArtistSearch = ({ artist1, receiveArtist }) => {
   return (
     <>
-      {!artistData && (
-        <ArtistForm setArtistData={data => setArtistData(data)} />
-      )}
-      {artistData && (
+      {!artist1 && <ArtistForm />}
+      {artist1 && (
         <ArtistResults
-          artistData={artistData}
-          onBackClick={() => setArtistData(null)}
+          artistData={artist1}
+          onBackClick={() => receiveArtist(null, 1)}
         />
       )}
     </>

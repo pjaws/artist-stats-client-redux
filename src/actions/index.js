@@ -19,7 +19,11 @@ export const receiveArtist = (data, position) => {
 export const fetchArtist = (search, position) => dispatch => {
   return fetch(`https://r5gg4.sse.codesandbox.io/artists?q=${search}`)
     .then(response => response.json())
-    .then(data => dispatch(receiveArtist(data, position)));
+    .then(data => {
+      console.log('data');
+      console.log(data);
+      dispatch(receiveArtist(data, position));
+    });
 };
 
-export const setPage = page => ({ type: SET_PAGE, page });
+export const setPage = page => ({ type: SET_PAGE, payload: { page } });

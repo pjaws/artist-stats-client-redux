@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
-import ArtistSearchBox from './ArtistSearchBox';
+import React from 'react';
+import ArtistSearchBox from '../containers/ArtistSearchBox';
 import ArtistComparisonResult from './ArtistComparisonResult';
 
-const CompareArtists = () => {
-  const [artist1, setArtist1] = useState(null);
-  const [artist2, setArtist2] = useState(null);
-
+const CompareArtists = ({ artist1, artist2, receiveArtist }) => {
   return (
     <section className="section">
       <h1 className="title is-1 is-spaced">Compare artists</h1>
@@ -13,20 +10,20 @@ const CompareArtists = () => {
         <div className="column is-8 is-offset-2">
           <div className="columns">
             <div className="column">
-              {!artist1 && <ArtistSearchBox setArtistData={setArtist1} />}
+              {!artist1 && <ArtistSearchBox position={1} />}
               {artist1 && (
                 <ArtistComparisonResult
                   artist={artist1}
-                  onBackClick={() => setArtist1(null)}
+                  onBackClick={() => receiveArtist(null, 1)}
                 />
               )}
             </div>
             <div className="column">
-              {!artist2 && <ArtistSearchBox setArtistData={setArtist2} />}
+              {!artist2 && <ArtistSearchBox position={2} />}
               {artist2 && (
                 <ArtistComparisonResult
                   artist={artist2}
-                  onBackClick={() => setArtist2(null)}
+                  onBackClick={() => receiveArtist(null, 2)}
                 />
               )}
             </div>
