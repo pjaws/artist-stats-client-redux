@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import CompareArtists from '../components/CompareArtists';
-import { fetchArtist } from '../actions';
+import { receiveArtist } from '../actions';
 
 const mapStateToProps = state => ({
   artist1: state.artists.artist1,
@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchArtist: (search, position) => dispatch(fetchArtist(search, position)),
+  receiveArtist: (data, position) => dispatch(receiveArtist(data, position)),
 });
 
 export default connect(

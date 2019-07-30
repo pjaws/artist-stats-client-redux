@@ -1,7 +1,7 @@
 import React from 'react';
-import ArtistSearchBox from './ArtistSearchBox';
+import ArtistSearchBox from '../containers/ArtistSearchBox';
 
-const ArtistForm = ({ setArtistData }) => {
+const ArtistForm = () => {
   return (
     <section className="hero">
       <div className="hero-body">
@@ -15,7 +15,7 @@ const ArtistForm = ({ setArtistData }) => {
                 Is your favorite artist happy or sad? Are they danceable? Get
                 these and other stats by searching for an artist below.
               </p>
-              <ArtistSearchBox setArtistData={setArtistData} />
+              <ArtistSearchBox position={1} />
             </div>
           </div>
         </div>
