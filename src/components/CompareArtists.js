@@ -2,12 +2,9 @@ import React, { useState } from 'react';
 import ArtistSearchBox from './ArtistSearchBox';
 import ArtistComparisonResult from './ArtistComparisonResult';
 
-const CompareArtists = ({ searchedArtist }) => {
+const CompareArtists = () => {
   const [artist1, setArtist1] = useState(null);
   const [artist2, setArtist2] = useState(null);
-
-  // if they came from the single artist search results page, auto-set artist 1
-  if (searchedArtist.name) setArtist1(searchedArtist);
 
   return (
     <section className="section">
