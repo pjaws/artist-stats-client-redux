@@ -1,5 +1,5 @@
 {
-  "name": "new",
+  "name": "artist-stats-client-redux",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
@@ -8,7 +8,10 @@
     "bulma": "0.7.5",
     "react": "16.8.6",
     "react-dom": "16.8.6",
-    "react-scripts": "3.0.1"
+    "react-redux": "7.1.0",
+    "react-scripts": "3.0.1",
+    "redux": "4.0.4",
+    "redux-thunk": "2.3.0"
   },
   "devDependencies": {
     "typescript": "3.3.3"
