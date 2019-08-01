@@ -17,7 +17,7 @@ export const receiveArtist = (data, position) => {
   };
 };
 export const fetchArtist = (search, position) => dispatch => {
-  return fetch(`https://r5gg4.sse.codesandbox.io/artists?q=${search}`)
+  return fetch(`https://aqueous-island-52978.herokuapp.com/artists?q=${search}`)
     .then(response => response.json())
     .then(data => {
       console.log('data');
